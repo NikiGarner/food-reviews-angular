@@ -16,8 +16,9 @@ import { NewRestaurantComponent } from './new-restaurant.component';
     <option value="all" selected="selected">Show All</option>
     <option *ngFor="#i of restaurantList">{{i.speciality}}</option>
   </select>
+  <span>
   <restaurant-display *ngFor="#currentRestaurant of restaurantList | speciality:filterSpeciality" [restaurant] = "currentRestaurant" (click)="restaurantClicked(currentRestaurant)" ></restaurant-display>
-
+  </span>
   <restaurant-detail *ngIf="selectedRestaurant" [restaurant] = "selectedRestaurant">
   </restaurant-detail>
   <restaurant-review *ngIf="selectedRestaurant" [restaurant] = "selectedRestaurant">
