@@ -24,8 +24,7 @@ export class RestaurantListComponent {
   }
 
   restaurantClicked(clickedRestaurant: Restaurant): void {
-    this.selectedRestaurant = clickedRestaurant;
-    this.onRestaurantSelect.emit(clickedRestaurant);
-    console.log(this.selectedRestaurant);
+    // this.selectedRestaurant = clickedRestaurant;
+    // this.onRestaurantSelect.emit(clickedRestaurant);
   }
 }

@@ -8,11 +8,25 @@ import { RestaurantDetailsComponent } from './restaurant-detail.component';
   directives: [RestaurantDetailsComponent],
   template: `
     <div>
-      <label>{{restaurant.name}}</label>
+      <label (click)="restaurantClicked(restaurant)">{{restaurant.name}}</label>
+      <restaurant-detail *ngIf="selectedRestaurant === restaurant && restaurant.display === true" [restaurant] = "selectedRestaurant"></restaurant-detail>
     </div>
+
 
   `
 })
 export class RestaurantComponent {
-  public restaurant: Restaurant;
+
+  public onRestaurantSelect: EventEmitter<Restaurant>;
+  public selectedRestaurant: Restaurant;
+  constructor() {
+    this.onRestaurantSelect = new EventEmitter();
+  }
+
+  restaurantClicked(clickedRestaurant: Restaurant): void {
+    this.selectedRestaurant = clickedRestaurant;
+    this.selectedRestaurant.display = !this.selectedRestaurant.display;
+    this.onRestaurantSelect.emit(clickedRestaurant);
+    console.log(this.selectedRestaurant);
+  }
 }
