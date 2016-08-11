@@ -18,8 +18,9 @@ export class AppComponent {
     this.restaurants = [
       new Restaurant("Clyde Common", "American", "SW 11th & Stark", 4, [], []),
       new Restaurant("808", "Hawaiian", "SW 10th & Alder", 2, [], []),
-      new Restaurant("Tabor", "Czech", "SW 5th & Oak", 2, [], [])
+      new Restaurant("Tabor", "Czech", "SW 5th & Oak", 2, [], []),
     ]
+    console.log("Restaurants created")
   }
 
 }
